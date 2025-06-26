@@ -1,0 +1,224 @@
+/* --- Cài đặt chung & Mobile-First Defaults --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%); /* Nền màu gradient */
+    color: #333;
+    overflow-x: hidden;
+    position: relative;
+    text-align: center;
+}
+
+/* --- Trang chính (index.html) --- */
+.main-container {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    max-width: 400px; /* Chiều rộng tối đa trên điện thoại */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.main-container h1 {
+    color: #e91e63;
+    margin-bottom: 15px;
+    font-size: 2em;
+    line-height: 1.3;
+}
+
+.intro-text, .closing-text {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.closing-text {
+    margin-top: 25px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.card-grid {
+    display: flex;
+    flex-direction: column; /* Các thẻ xếp dọc trên điện thoại */
+    gap: 20px; /* Khoảng cách giữa các thẻ */
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none; /* Bỏ gạch chân link */
+    color: #333;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+    width: 120px; /* Kích thước ảnh thumbnail */
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%; /* Ảnh tròn */
+    margin-bottom: 15px;
+    border: 3px solid #f48fb1; /* Viền hồng nhẹ */
+}
+
+.card h3 {
+    color: #e91e63;
+    font-size: 1.3em;
+    margin-bottom: 8px;
+}
+
+.card p {
+    font-size: 0.95em;
+    color: #777;
+    line-height: 1.4;
+}
+
+/* --- CSS cho các trang con (page1, page2, page3) --- */
+.page-container {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    max-width: 400px; /* Tối đa 400px trên điện thoại */
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 400px; /* Chiều cao tối thiểu */
+}
+
+.page-container h2 {
+    color: #e91e63;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    line-height: 1.3;
+}
+
+.page-content {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #555;
+    max-width: 95%;
+    margin: 0 auto 20px auto;
+    text-align: center;
+    overflow-y: auto; /* Cho phép cuộn nếu nội dung dài */
+    max-height: 300px; /* Giới hạn chiều cao cho nội dung */
+    padding-right: 5px; /* Để tránh nội dung sát thanh cuộn */
+}
+
+.page-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+    max-height: 300px; /* Giới hạn chiều cao gallery trên di động */
+    overflow-y: auto;
+    padding: 5px;
+}
+
+.page-gallery img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.page-gallery img:hover {
+    transform: scale(1.05);
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 25px;
+    background-color: #4CAF50; /* Màu xanh */
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #45a049;
+    transform: translateY(-3px);
+}
+
+/* --- Responsive cho màn hình lớn hơn (Desktop/Tablet) --- */
+@media (min-width: 768px) {
+    body {
+        padding: 0;
+    }
+
+    .main-container, .page-container {
+        max-width: 700px; /* Mở rộng chiều rộng trên desktop */
+        padding: 40px;
+        border-radius: 20px;
+    }
+
+    .main-container h1 {
+        font-size: 2.8em;
+    }
+
+    .intro-text, .closing-text {
+        font-size: 1.2em;
+    }
+
+    .card-grid {
+        flex-direction: row; /* Các thẻ xếp ngang trên desktop */
+        flex-wrap: wrap; /* Cho phép xuống dòng nếu nhiều */
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .card {
+        flex: 1; /* Cho phép thẻ co giãn */
+        max-width: 200px; /* Giới hạn chiều rộng thẻ */
+        padding: 25px;
+    }
+
+    .card img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .card h3 {
+        font-size: 1.5em;
+    }
+
+    .page-container h2 {
+        font-size: 2.5em;
+    }
+
+    .page-content {
+        font-size: 1.2em;
+        max-height: none; /* Bỏ giới hạn chiều cao cho nội dung */
+    }
+
+    .page-gallery img {
+        width: 150px;
+        height: 150px;
+    }
+}
